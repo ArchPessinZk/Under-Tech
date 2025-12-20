@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const revealEls = document.querySelectorAll('.reveal');
 
   function revealOnScroll() {
-    const trigger = window.innerHeight * 0.85;
+    const trigger = window.innerHeight * 0.50;
     revealEls.forEach(el => {
       if (el.getBoundingClientRect().top < trigger) {
         el.classList.add('in-view');
