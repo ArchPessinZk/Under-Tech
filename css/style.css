@@ -2,7 +2,6 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  user-select: none;
 }
 
 html {
@@ -14,6 +13,7 @@ body {
   background: #0a0a0a;
   color: #eaeaea;
   line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
 }
 
 img {
@@ -48,12 +48,10 @@ section {
 
 .site-header {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
+  inset: 0 0 auto 0;
   z-index: 50;
-  background: rgba(10, 10, 10, 0.6);
-  backdrop-filter: blur(10px);
+  background: rgba(10, 10, 10, 0.65);
+  backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--border);
 }
 
@@ -67,7 +65,7 @@ section {
 .brand {
   font-size: 22px;
   font-weight: 700;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.4px;
 }
 
 .brand .dot {
@@ -78,6 +76,7 @@ section {
   margin-left: 24px;
   font-size: 14px;
   color: var(--muted);
+  transition: color .2s ease;
 }
 
 .nav a:hover {
@@ -121,32 +120,29 @@ section {
 }
 
 .card-visual {
-  background: linear-gradient(180deg, #151515, #0d0d0d);
+  background: linear-gradient(180deg, #161616, #0c0c0c);
   border: 1px solid var(--border);
-  border-radius: 20px;
+  border-radius: 22px;
   overflow: hidden;
-  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 40px 90px rgba(0, 0, 0, 0.7);
 }
 
 .btn {
   padding: 14px 22px;
-  border-radius: 12px;
+  border-radius: 14px;
   font-size: 14px;
   font-weight: 600;
-  transition: 0.25s;
-   outline: 1px solid #208ee8;
+  transition: transform .25s ease, box-shadow .25s ease, background .25s ease;
 }
 
 .btn.primary {
   background: var(--accent);
   color: #000;
-   outline: 1px solid #208ee8;
 }
 
 .btn.primary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 30px rgba(255, 106, 0, 0.35);
-   outline: 1px solid #208ee8;
+  transform: translateY(-3px);
+  box-shadow: 0 14px 40px rgba(255, 106, 0, 0.4);
 }
 
 .btn.ghost {
@@ -156,6 +152,11 @@ section {
 
 .btn.ghost:hover {
   border-color: #fff;
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
 }
 
 section h3 {
@@ -173,17 +174,15 @@ section h3 {
 .venda-card {
   background: var(--panel);
   border: 1px solid var(--border);
-  border-radius: 20px;
+  border-radius: 22px;
   padding: 32px;
-  transition: 0.3s;
+  transition: transform .35s ease, box-shadow .35s ease;
+  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.45);
 }
 
 .pill:hover,
 .venda-card:hover {
-  transform: translateY(-6px);
-}
-.pill, .venda-card {
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+  transform: translateY(-8px);
 }
 
 .pill h4,
@@ -202,15 +201,15 @@ section h3 {
   gap: 24px;
   align-items: flex-start;
   margin-bottom: 32px;
-  padding: 24px;
-  border-radius: 16px;
+  padding: 28px;
+  border-radius: 18px;
   background: var(--panel);
   border: 1px solid var(--border);
 }
 
 .avatar {
-  width: 42px;
-  height: 42px;
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -222,10 +221,10 @@ section h3 {
 
 .discord-promo {
   text-align: center;
-  background: linear-gradient(180deg, #151515, #0e0e0e);
+  background: linear-gradient(180deg, #161616, #0d0d0d);
   border: 1px solid var(--border);
-  border-radius: 24px;
-  padding: 64px;
+  border-radius: 26px;
+  padding: 72px;
 }
 
 .discord-promo h4 {
@@ -248,8 +247,8 @@ section h3 {
 .reveal {
   opacity: 0;
   transform: translateY(32px);
-  transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
-              transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: opacity .9s cubic-bezier(.22,1,.36,1),
+              transform .9s cubic-bezier(.22,1,.36,1);
 }
 
 .reveal.in-view {
@@ -274,6 +273,7 @@ section h3 {
     display: none;
   }
 }
+
 .parallax {
   transform-style: preserve-3d;
   will-change: transform;
@@ -286,7 +286,7 @@ section h3 {
   border-radius: inherit;
   background: linear-gradient(
     120deg,
-    rgba(255,255,255,0.06),
+    rgba(255,255,255,0.08),
     transparent 60%
   );
   opacity: 0;
@@ -297,6 +297,7 @@ section h3 {
 .parallax:hover::after {
   opacity: 1;
 }
+
 #bg-particles {
   position: fixed;
   inset: 0;
@@ -304,9 +305,8 @@ section h3 {
   pointer-events: none;
   background: radial-gradient(
     circle at center,
-    #0e0e0e 0%,
+    #0f0f0f 0%,
     #070707 60%,
     #050505 100%
   );
 }
-
