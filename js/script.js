@@ -165,3 +165,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
   animate();
 })();
+
+import Snowfall from 'react-snowfall';
+
+function App() {
+  return (
+      <Snowfall
+        snowflakeCount={120}
+        color="#ffffff"
+        speed={[0.5, 2.5]}
+        wind={[-0.5, 1]}
+      />
+  );
+}
+
+export default App;
+
