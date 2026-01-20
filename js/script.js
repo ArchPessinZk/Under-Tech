@@ -99,7 +99,6 @@ document.addEventListener('DOMContentLoaded', () => {
       if (dist < 180) {
         this.vx += dx * 0.0003;
         this.vy += dy * 0.0003;
-
       }
 
       this.x += this.vx;
@@ -151,7 +150,7 @@ document.addEventListener('DOMContentLoaded', () => {
   function animate() {
     ctx.clearRect(0, 0, w, h);
 
-   mouse.x = lerp(mouse.x, mouse.tx, 0.14);
+    mouse.x = lerp(mouse.x, mouse.tx, 0.14);
     mouse.y = lerp(mouse.y, mouse.ty, 0.14);
 
     particles.forEach(p => {
@@ -165,19 +164,3 @@ document.addEventListener('DOMContentLoaded', () => {
 
   animate();
 })();
-
-import Snowfall from 'react-snowfall';
-
-function App() {
-  return (
-      <Snowfall
-        snowflakeCount={120}
-        color="#ffffff"
-        speed={[0.5, 2.5]}
-        wind={[-0.5, 1]}
-      />
-  );
-}
-
-export default App;
-
