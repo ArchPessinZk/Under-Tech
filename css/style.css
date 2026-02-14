@@ -6,6 +6,13 @@
 
 html {
   scroll-behavior: smooth;
+  height: 100%;
+  background: radial-gradient(
+    circle at center,
+    #0f0f0f 0%,
+    #070707 60%,
+    #050505 100%
+  );
 }
 
 body {
@@ -14,6 +21,7 @@ body {
   color: #eaeaea;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
 }
 
 img {
@@ -303,10 +311,4 @@ section h3 {
   inset: 0;
   z-index: -1;
   pointer-events: none;
-  background: radial-gradient(
-    circle at center,
-    #0f0f0f 0%,
-    #070707 60%,
-    #050505 100%
-  );
 }
