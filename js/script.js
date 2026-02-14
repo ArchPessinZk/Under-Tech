@@ -88,7 +88,7 @@ document.addEventListener('DOMContentLoaded', () => {
       this.y = Math.random() * h;
       this.vx = (Math.random() - 0.5) * 0.3;
       this.vy = (Math.random() - 0.5) * 0.3;
-      this.size = Math.random() * 1.5 + 0.5;
+      this.size = Math.random() * 2 + 1;
     }
 
     update() {
@@ -116,13 +116,13 @@ document.addEventListener('DOMContentLoaded', () => {
     draw() {
       ctx.beginPath();
       ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-      ctx.fillStyle = 'rgba(255,255,255,0.5)';
+      ctx.fillStyle = 'rgba(255,255,255,0.8)';
       ctx.fill();
     }
   }
 
   const particles = [];
-  const COUNT = Math.min(120, Math.floor(window.innerWidth / 10));
+  const COUNT = Math.min(200, Math.floor(window.innerWidth / 8));
 
   for (let i = 0; i < COUNT; i++) {
     particles.push(new Particle());
@@ -136,8 +136,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const dist = Math.hypot(dx, dy);
 
         if (dist < 140) {
-          ctx.strokeStyle = `rgba(255,255,255,${1 - dist / 140})`;
-          ctx.lineWidth = 0.4;
+          ctx.strokeStyle = `rgba(255,255,255,${(1 - dist / 140) * 0.6})`;
+          ctx.lineWidth = 0.5;
           ctx.beginPath();
           ctx.moveTo(particles[i].x, particles[i].y);
           ctx.lineTo(particles[j].x, particles[j].y);
