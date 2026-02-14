@@ -252,6 +252,10 @@ section h3 {
   margin-bottom: 32px;
 }
 
+.discord-promo .cta-row {
+  justify-content: center;
+}
+
 .site-footer {
   border-top: 1px solid var(--border);
   padding: 32px 0;
@@ -321,4 +325,25 @@ section h3 {
   display: block;
   width: 100%;
   height: 100%;
+}
+
+.qr-code-corner {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 40;
+  pointer-events: auto;
+}
+
+.qr-code-corner img {
+  width: 120px;
+  height: 120px;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+
+.qr-code-corner img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 12px 32px rgba(255, 106, 0, 0.3);
 }
