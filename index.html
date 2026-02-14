@@ -17,7 +17,19 @@
   <canvas id="bg-particles"></canvas>
 
   <div class="qr-code-corner">
-    <img src="imagens/undertech.co_qr.png" alt="QR Code UnderTech">
+    <button class="qr-toggle" aria-expanded="false" aria-controls="qr-popup">
+      <img src="imagens/undertech.co_qr.png" alt="QR Code UnderTech">
+    </button>
+  </div>
+
+  <div id="qr-popup" class="qr-popup" role="dialog" aria-hidden="true" aria-labelledby="qr-title">
+    <button class="qr-close" aria-label="Fechar">×</button>
+    <div class="qr-content">
+      <h4 id="qr-title">QR Code — UnderTech</h4>
+      <img src="imagens/undertech.co_qr.png" alt="QR Code UnderTech grande" class="qr-large">
+      <a class="btn ghost qr-link" href="https://www.instagram.com/undertech.co" target="_blank" rel="noopener">Seguir no Instagram</a>
+      <p class="qr-note">Toque fora para fechar • Esc para sair</p>
+    </div>
   </div>
 
   <header class="site-header">

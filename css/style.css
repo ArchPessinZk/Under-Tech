@@ -347,3 +347,72 @@ section h3 {
   transform: scale(1.05);
   box-shadow: 0 12px 32px rgba(255, 106, 0, 0.3);
 }
+
+/* QR popup/card */
+.qr-toggle {
+  border: none;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+}
+
+.qr-popup {
+  position: fixed;
+  bottom: 24px;
+  right: 160px;
+  z-index: 60;
+  width: 260px;
+  max-width: calc(100% - 40px);
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  box-shadow: 0 24px 80px rgba(0,0,0,0.6);
+  transform-origin: bottom right;
+  opacity: 0;
+  transform: translateY(8px) scale(0.98);
+  pointer-events: none;
+  transition: opacity .22s ease, transform .22s ease;
+  padding: 14px;
+}
+
+.qr-popup.open {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+
+.qr-popup .qr-close {
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  border: none;
+  background: transparent;
+  color: var(--muted);
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.qr-popup .qr-content {
+  text-align: center;
+  padding-top: 6px;
+}
+
+.qr-popup .qr-large {
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 10px;
+  display: block;
+  margin: 8px auto;
+}
+
+.qr-popup .qr-link {
+  display: inline-block;
+  margin-top: 8px;
+}
+
+.qr-popup .qr-note {
+  margin-top: 8px;
+  color: var(--muted);
+  font-size: 12px;
+}

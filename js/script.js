@@ -164,3 +164,46 @@ document.addEventListener('DOMContentLoaded', () => {
 
   animate();
 })();
+
+// QR popup behavior: toggle, close on outside click or Escape
+document.addEventListener('DOMContentLoaded', () => {
+  const qrToggle = document.querySelector('.qr-toggle');
+  const qrPopup = document.getElementById('qr-popup');
+  const qrClose = qrPopup ? qrPopup.querySelector('.qr-close') : null;
+
+  if (!qrToggle || !qrPopup) return;
+
+  function openPopup() {
+    qrPopup.classList.add('open');
+    qrPopup.setAttribute('aria-hidden', 'false');
+    qrToggle.setAttribute('aria-expanded', 'true');
+  }
+
+  function closePopup() {
+    qrPopup.classList.remove('open');
+    qrPopup.setAttribute('aria-hidden', 'true');
+    qrToggle.setAttribute('aria-expanded', 'false');
+  }
+
+  qrToggle.addEventListener('click', (e) => {
+    e.stopPropagation();
+    if (qrPopup.classList.contains('open')) closePopup(); else openPopup();
+  });
+
+  qrClose && qrClose.addEventListener('click', (e) => {
+    e.stopPropagation();
+    closePopup();
+  });
+
+  // Close when clicking outside
+  document.addEventListener('click', (e) => {
+    if (!qrPopup.classList.contains('open')) return;
+    const inside = qrPopup.contains(e.target) || qrToggle.contains(e.target);
+    if (!inside) closePopup();
+  });
+
+  // Close on Escape
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closePopup();
+  });
+});
